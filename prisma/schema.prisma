@@ -1,0 +1,27 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model Marksheet{
+  id Int @default(autoincrement()) @id
+  student_uuid String
+  code String
+  name String
+  credit Int
+  cat1 Int
+  cat2 Int
+  exam_mark Int
+  total_mark Int
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+
+}
